@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 custom_colors = ['#FF6B6B', '#4ECDC4', '#556270']  # Custom color palette
 
 # Constants
-T = 100     # Simulation time [mSec]
+T = 50     # Simulation time [mSec]
 dt = 0.1    # Time interval [mSec]
 vRest = -70 # Resting potential [mV]
 Rm = 1      # Membrane Resistance [kOhm]
