@@ -10,10 +10,10 @@ y  = 140
 titles = ['Regular Spiking', 'Intrinsically Bursting', 'Chattering', 'Fast spiking',
           'Low Threshold Spiking', 'TC - Tonic Firing', 'TC - Rebound Burst',
           'Resonator - Appropriate Frequency', 'Resonator - Inappropriate Frequency']
-a  = [0.02, 0.02, 0.02, 0.1, 0.02, 0.02, 0.001, 0.1, 0.1]
-b  = [0.2, 0.2, 0.2, 0.2, 0.25, 0.25, 0.4, 0.26, 0.26]
+a  = [0.02, 0.02, 0.02, 0.1, 0.02, 0.02, 0.02, 0.1, 0.1]
+b  = [0.2, 0.2, 0.2, 0.2, 0.25, 0.25, 0.25, 0.26, 0.26]
 c  = [-65, -55, -50, -65, -65, -65, -65, -65, -65]
-d  = [8, 4, 2, 2, 2, 2, 6, 2, 2]
+d  = [8, 4, 2, 2, 2, 0.05, 0.05, 2, 2]
 
 v0s = [-70, -70, -70, -70, -70, -60, -90, -70, -70]
 # v0 = -70         # Resting potential        [mV]
@@ -33,8 +33,8 @@ for exp in range(len(a)):
     if titles[exp] == 'TC - Rebound Burst':
         tempStim = np.zeros(len(time))
         tempStim[int(0 / dt):int(40 / dt)] = -20
-        tempStim[int(40 / dt):] = 1
-        stimLabel = "I(t): -20→1"
+        tempStim[int(40 / dt):] = 0
+        stimLabel = "I(t): -20→0"
     elif titles[exp] == 'Resonator - Appropriate Frequency':
         tempStim = np.ones(len(time)) * -0.65
         # pulse_times = [70, 95, 120, 145, 170]
