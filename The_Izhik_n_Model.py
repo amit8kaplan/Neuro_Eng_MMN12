@@ -30,7 +30,11 @@ for i,t in enumerate(DefulatStim):
 for exp in range(len(a)):
     trace = np.zeros((2, len(time)))  # Tracing du and dv
 
-    if titles[exp] == 'TC - Rebound Burst':
+    if titles[exp] == "TC - Tonic Firing":
+        tempStim = np.zeros(len(time))
+        tempStim[int(40/ dt):] = 1.5
+        stimLabel = "I(t): 0→1.5"
+    elif titles[exp] == 'TC - Rebound Burst':
         tempStim = np.zeros(len(time))
         tempStim[int(0 / dt):int(40 / dt)] = -20
         tempStim[int(40 / dt):] = 0
@@ -84,5 +88,5 @@ for exp in range(len(a)):
     plt.legend(loc=1)
     plt.figtext(0.5, -0.05, param_label, wrap=True, ha='center', fontsize=11)
 
-    filename = f'izhikevich_mmn12_15.0_{titles[exp].replace(" ", "_").lower()}.png'
+    filename = f'izhikevich_mmn12_16.0_{titles[exp].replace(" ", "_").lower()}.png'
     plt.savefig(f"{filename}",  bbox_inches='tight')
